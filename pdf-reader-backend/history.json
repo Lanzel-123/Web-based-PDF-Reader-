@@ -1,0 +1,80 @@
+[
+  {
+    "timestamp": "2026-04-08T00:05:59.738Z",
+    "originalName": "CIT 306 - Group 1.pdf",
+    "storedName": "1775606758306.pdf",
+    "summary": "Technological Institute of the Philippines. Another problem that we see is the “awkwardness factor,\" where after the event, people forget that they owe someone some money, and the one who lends the money feels like they cannot get their money back from those that they lent some money to. Where the problem lies is in the manual calculation and tracking of expenses, especially if the expense arrangement is one person pays for one thing and another for another thing, and when someone ends up having to pay out of pocket for a sudden expense. Objectives To develop FairShare, a multi-pillar financial management application that bridges the gap between personal budgeting and social expense tracking, ensuring financial transparency and reducing social friction within groups. To Integrate Personal and Social Ledgers: Create a unified system where users can log personal daily expenses and seamless... (Full: 1057 words | Sample section length: 142 words)"
+  },
+  {
+    "timestamp": "2026-04-08T00:05:20.808Z",
+    "originalName": "Sample of Stuffs.pdf",
+    "storedName": "1775606720532.pdf",
+    "summary": "No summary could be generated. (Full: 1 words | Sample section length: 5 words)"
+  },
+  {
+    "timestamp": "2026-04-08T00:05:06.941Z",
+    "originalName": "CLOUD GOVERNANCE AND COMPLIANCE-1.pdf",
+    "storedName": "1775606705347.pdf",
+    "summary": "CLOUD SECURITY. CLOUD SECURITY AND COMPLIANCE MANAGEMENT Cloud Security and Compliance Management is the combined practice of protecting cloud-based data, applications, and infrastructure from threats while ensuring adherence to regulatory standards (e. It involves continuous monitoring, automated security controls, data encryption, and identity management to maintain data integrity and compliance in public, private, or hybrid cloud environments. WHAT IS CLOUD SECURITY AND COMPLIANCE MANAGEMENT KEY CHALLENGES RISK INSECURE API AND INTERFACE CLOUD DATA BREACHES IDENTITY AND ACCESS MANAGEMENT(IAM) WEAKNESS Can be used as entry points for attacks making them vulnerable. BEST PRACTICES ZERO TRUST ARCHITECTURE DATA ENCRYPTION ACCESS MANAGEMENT DATA BACKUP AND RECOVERY A model where no user or device is trusted by default, even if they are inside the network, continuously requiring verificatio... (Full: 350 words | Sample section length: 124 words)"
+  },
+  {
+    "timestamp": "2026-04-08T00:04:58.625Z",
+    "originalName": "CLOUD GOVERNANCE AND COMPLIANCE-1.pdf",
+    "storedName": "1775606696789.pdf",
+    "summary": "CLOUD SECURITY. CLOUD SECURITY AND COMPLIANCE MANAGEMENT Cloud Security and Compliance Management is the combined practice of protecting cloud-based data, applications, and infrastructure from threats while ensuring adherence to regulatory standards (e. It involves continuous monitoring, automated security controls, data encryption, and identity management to maintain data integrity and compliance in public, private, or hybrid cloud environments. WHAT IS CLOUD SECURITY AND COMPLIANCE MANAGEMENT KEY CHALLENGES RISK INSECURE API AND INTERFACE CLOUD DATA BREACHES IDENTITY AND ACCESS MANAGEMENT(IAM) WEAKNESS Can be used as entry points for attacks making them vulnerable. BEST PRACTICES ZERO TRUST ARCHITECTURE DATA ENCRYPTION ACCESS MANAGEMENT DATA BACKUP AND RECOVERY A model where no user or device is trusted by default, even if they are inside the network, continuously requiring verificatio... (Full: 350 words | Sample section length: 124 words)"
+  },
+  {
+    "timestamp": "2026-04-08T00:04:02.239Z",
+    "originalName": "CIT 306 - Group 1 (1).pdf",
+    "storedName": "1775606641607.pdf",
+    "summary": "Technological Institute of the Philippines. This leads to financial confusion and manual computation burdens, especially when the receipts contain multiple sub-expense that involves different participants And the last problem that we see is the problem of expense management for a group of people. Where the problem lies is in the manual calculation and tracking of expenses, especially if the expense arrangement is one person pays for one thing and another for another thing, and when someone ends up having to pay out of pocket for a sudden expense. Objectives To develop FairShare, a multi-pillar financial management application that bridges the gap between personal budgeting and social expense tracking, ensuring financial transparency and reducing social friction within groups. To Integrate Personal and Social Ledgers: Create a unified system where users can log personal daily expenses and... (Full: 1369 words | Sample section length: 135 words)"
+  },
+  {
+    "timestamp": "2026-04-07T23:50:08.723Z",
+    "originalName": "CIT307 Reflection.pdf",
+    "storedName": "1775605807622.pdf",
+    "summary": "Name:Salvador, Louis CIT307-IT32S3. Name:Salvador, Louis CIT307-IT32S3 Part 1 Factor IaaS PaaS SaaS Scalability Manual or script-based; offers the most granular control. Name:Salvador, Louis CIT307-IT32S3 Part 2 The Strategic Significance of Cloud Service Model Differentiation in Organizational Migration The transition to cloud-based infrastructure is not merely a technical migration but a complex strategic pivot. This reflection examines the necessity of distinguishing between Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS) to ensure organizational alignment, fiscal sustainability, and security integrity. Alignment of Operational Velocity and Business Objectives A primary insight derived from the study of cloud models is the direct correlation between the chosen service tier and organizational \"velocity. Fiscal Implications: From Capita... (Full: 560 words | Sample section length: 119 words)"
+  },
+  {
+    "timestamp": "2026-04-07T23:48:17.877Z",
+    "originalName": "CIT402A Final Project.pdf",
+    "storedName": "1775605696619.pdf",
+    "summary": "Technological Institute of the Philippines. Initial Analytical Approach: EDA: Explore patterns between gaming hours and GPA, Predictive: Use regression or classification to predict academic performance based on gaming behavior Expected Insights: Identify whether excessive gaming correlates with lower academic performance, detecting the threshold levels of gaming affecting outcomes Justification: This topic explores how students’ gaming behavior impacts their academic performance. app/u/kaggle/dataset/alexteboul_diabetes_health_indicators_dataset Initial Analytical Approach: EDA: Examine distributions of health metrics, correlations with disease incidence Predictive: Classification models (Decision Tree, Logistic Regression) to predict disease probability Expected Insights: Identify high-risk individuals and key health factors influencing disease development Justification: Predicting the... (Full: 854 words | Sample section length: 100 words)"
+  },
+  {
+    "timestamp": "2026-04-05T14:51:37.701Z",
+    "originalName": "CIT306 Data Persistence.pdf",
+    "storedName": "1775400697533.pdf",
+    "summary": "Name:Salvdor, Louis Abraham Date:3-3-26. Name:Salvdor, Louis Abraham Date:3-3-26 Section:CIT306 IT32S3 Firebase Name:Salvdor, Louis Abraham Date:3-3-26 Section:CIT306 IT32S3 Phone Name:Salvdor, Louis Abraham Date:3-3-26 Section:CIT306 IT32S3 Additional Task Name:Salvdor, Louis Abraham Date:3-3-26 Section:CIT306 IT32S3 Name:Salvdor, Louis Abraham Date:3-3-26 Section:CIT306 IT32S3 Conclusion: Implementing a Persistence App that connects to user's phone and cloud, creating an app that allows the user to save the data, show the data and clear multiple data points from cloud while allowing the user to use Dark Mode Toggle. using a Jetpack Compose allow for a modern user interface havign a real-time data synchronizaton and dynamic Dark Mode. Takeaway: Firestore: Local sotrage is useful for small settings while Firestore manage the list of data Management: use of remember and mutableStateOf in... (Full: 124 words | Sample section length: 122 words)"
+  },
+  {
+    "timestamp": "2026-04-05T14:51:10.936Z",
+    "originalName": "Gesture_Recognition.pdf",
+    "storedName": "1775400670694.pdf",
+    "summary": "<?php ?>. 4; } code { background: #111827; padding: 2px 6px; border-radius: 6px; } </style> </head> <body> <div class=\"container\"> <h2>Gesture Recognition</h2> <div class=\"stage\"> <img id=\"stream\" alt=\"Camera Stream\" /> <div class=\"hud\"> <div>System</div> <div id=\"sysText\" class=\"status warn\">Ready</div> <div style=\"margin-top:10px\">Gesture</div> <div id=\"gestureText\" class=\"status warn\"> ---</div> </div> </div> <div class=\"controls\"> <button id=\"startBtn\">Start Camera</button> <button id=\"stopBtn\">Stop</button> <button id=\"checkBtn\">Check Backend</button> </div> <div class=\"note\"> Required workflow:<br> 1) Run <code>d:\\Xampp\\xampp\\htdocs\\GestoRecognition_Salvador\\. landmark[pip_id] return dist(tip,wrist) < dist(pip, wrist) def recognize_gesture(hand): thumb = thumb_extended(hand) index = finger_extended(hand, 8, 6, 5) middle = finger_extended(hand, 12, 10, 9) ring = finger_extended(hand... (Full: 1436 words | Sample section length: 88 words)"
+  },
+  {
+    "timestamp": "2026-04-05T14:44:18.739Z",
+    "originalName": "CLOUD GOVERNANCE AND COMPLIANCE-1.pdf",
+    "storedName": "1775400257914.pdf",
+    "summary": "CLOUD SECURITY. CLOUD SECURITY AND COMPLIANCE MANAGEMENT Cloud Security and Compliance Management is the combined practice of protecting cloud-based data, applications, and infrastructure from threats while ensuring adherence to regulatory standards (e. It involves continuous monitoring, automated security controls, data encryption, and identity management to maintain data integrity and compliance in public, private, or hybrid cloud environments. WHAT IS CLOUD SECURITY AND COMPLIANCE MANAGEMENT KEY CHALLENGES RISK INSECURE API AND INTERFACE CLOUD DATA BREACHES IDENTITY AND ACCESS MANAGEMENT(IAM) WEAKNESS Can be used as entry points for attacks making them vulnerable. BEST PRACTICES ZERO TRUST ARCHITECTURE DATA ENCRYPTION ACCESS MANAGEMENT DATA BACKUP AND RECOVERY A model where no user or device is trusted by default, even if they are inside the network, continuously requiring verificatio... (Full: 350 words | Sample section length: 124 words)"
+  },
+  {
+    "timestamp": "2026-04-05T14:44:14.396Z",
+    "originalName": "CIT 306 - Group 1.pdf",
+    "storedName": "1775400254209.pdf",
+    "summary": "Technological Institute of the Philippines. Another problem that we see is the “awkwardness factor,\" where after the event, people forget that they owe someone some money, and the one who lends the money feels like they cannot get their money back from those that they lent some money to. Where the problem lies is in the manual calculation and tracking of expenses, especially if the expense arrangement is one person pays for one thing and another for another thing, and when someone ends up having to pay out of pocket for a sudden expense. Objectives To develop FairShare, a multi-pillar financial management application that bridges the gap between personal budgeting and social expense tracking, ensuring financial transparency and reducing social friction within groups. To Integrate Personal and Social Ledgers: Create a unified system where users can log personal daily expenses and seamless... (Full: 1057 words | Sample section length: 142 words)"
+  },
+  {
+    "timestamp": "2026-04-05T14:44:02.535Z",
+    "originalName": "CIT006 W11 (1).pdf",
+    "storedName": "1775400242396.pdf",
+    "summary": "Name:Salvador, Louis Abraham Date:3-6-26. Name:Salvador, Louis Abraham Date:3-6-26 Section:CIT006 IT32S3 guidelines 1. many image training for the AI model to learn different appearances of an object, which includes different angles,lighting,backgrounds and distances for the AI to recognize better. if the training data is poor the AI will not learn correctly it will make wrong predictions,confuse objects and have low confidence score 3. it will misclassify objects if the training is not diverse enough. similar looking objects, poor lighting or background that can resemble the trained image will confuse the model. (Full: 114 words | Sample section length: 90 words)"
+  },
+  {
+    "timestamp": "2026-04-05T14:40:50.563Z",
+    "originalName": "CIT307 Reflection.pdf",
+    "storedName": "1775400050364.pdf",
+    "summary": "Name:Salvador, Louis CIT307-IT32S3. Name:Salvador, Louis CIT307-IT32S3 Part 1 Factor IaaS PaaS SaaS Scalability Manual or script-based; offers the most granular control. Name:Salvador, Louis CIT307-IT32S3 Part 2 The Strategic Significance of Cloud Service Model Differentiation in Organizational Migration The transition to cloud-based infrastructure is not merely a technical migration but a complex strategic pivot. This reflection examines the necessity of distinguishing between Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS) to ensure organizational alignment, fiscal sustainability, and security integrity. Alignment of Operational Velocity and Business Objectives A primary insight derived from the study of cloud models is the direct correlation between the chosen service tier and organizational \"velocity. Fiscal Implications: From Capita... (Full: 560 words | Sample section length: 119 words)"
+  }
+]

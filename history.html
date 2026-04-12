@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload History</title>
+  <style>
+    body { background: #2c3e50; color: #ecf0f1; margin: 0; font-family: 'Segoe UI', Arial, sans-serif; min-height: 100vh; }
+    header, footer { background: #34495e; color: #fff; padding: 20px; text-align: center; position: fixed; width: 100%; z-index: 100; }
+    header { top: 0; }
+    footer { bottom: 0; }
+    main { margin: 100px auto 80px; max-width: 1500px; }
+    .history-layout { display: flex; gap: 40px; align-items: flex-start; justify-content: space-between; }
+    .history-left { flex: 0 0 620px; }
+    .history-right { flex: 0 0 760px; }
+    .history-right .card { width: 100%; }
+    #historyContainer { max-height: 640px; overflow-y: auto; padding-right: 8px; }
+    #historyContainer table { margin-bottom: 0; }
+    #historyContainer::-webkit-scrollbar { width: 10px; }
+    #historyContainer::-webkit-scrollbar-track { background: #e0e4ea; border-radius: 5px; }
+    #historyContainer::-webkit-scrollbar-thumb { background: #1abc9c; border-radius: 5px; }
+    table { width: 100%; border-collapse: collapse; background: #ffffff; color: #1f2a44; border-radius: 8px; overflow: hidden; }
+    th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid #ddd; }
+    th { background: #1abc9c; color: #fff; }
+    tr:last-child td { border-bottom: none; }
+    .btn { display: inline-block; margin: 8px 4px; padding: 8px 14px; color: #fff; background: #3498db; border: none; border-radius: 6px; cursor:pointer; text-decoration:none; }
+    .btn.danger { background: #e74c3c; }
+    .link { color: #2c3e50; text-decoration: none; font-weight: 600; }
+    .center { text-align:center; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Upload History</strong>
+    <a href="index.html" class="btn" style="background:#1abc9c; margin-left:16px;">Back to Reader</a>
+  </header>
+  <main>
+    <div style="margin-bottom: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+      <button id="clearHistoryBtn" class="btn danger">Clear History</button>
+      <div style="color:#ecf0f1; align-self:center;">Select a record to enable STT/TTS controls on the right.</div>
+    </div>
+    <div class="history-layout">
+      <div class="history-left">
+        <div id="historyContainer"></div>
+      </div>
+      <div class="history-right">
+        <div id="audioPanel" style="display:none;">
+          <div class="card" style="background:#ffffff; color:#1f2a44; padding:20px; border-radius:10px; box-shadow:0 6px 18px rgba(0,0,0,0.12);">
+            <h3 style="margin-top:0;">Selected PDF</h3>
+            <p><strong>PDF File:</strong> <span id="selectedFileName">None</span></p>
+            <p><strong>Summary:</strong></p>
+            <div id="selectedSummary" style="background:#f5f7fb; border:1px solid #dfe6ed; border-radius:8px; padding:16px; max-height:220px; overflow-y:auto; color:#1f2a44;"></div>
+            <div style="margin-top:20px; display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+              <button id="historyStartSttBtn" class="btn" style="background:#3498db;">Start STT</button>
+              <button id="historyStopSttBtn" class="btn" style="background:#ff6b6b;">Stop STT</button>
+              <button id="historyTtsBtn" class="btn" style="background:#2ecc71;">Speak Summary</button>
+              <button id="historyStopTtsBtn" class="btn" style="background:#f39c12;">Stop Speaking</button>
+            </div>
+            <div id="sttTranscript" style="margin-top:18px; background:#eef4fa; border:1px solid #d3e1ef; border-radius:8px; min-height:80px; padding:14px; color:#1f2a44; overflow-y:auto;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>&copy; 2026 PDF Reader</footer>
+
+  <script>
+    let selectedHistory = null;
+    let recognition = null;
+    let speechUtterance = null;
+
+    function initializeSpeechTools() {
+      if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.interimResults = true;
+        recognition.continuous = true;
+
+        recognition.addEventListener('result', (event) => {
+          let transcript = '';
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            transcript += event.results[i][0].transcript;
+          }
+          document.getElementById('sttTranscript').innerText = transcript;
+        });
+
+        recognition.addEventListener('end', () => {
+          document.getElementById('historyStartSttBtn').innerText = 'Start STT';
+        });
+
+        recognition.addEventListener('error', (error) => {
+          alert('STT error: ' + error.error);
+        });
+      } else {
+        document.getElementById('historyStartSttBtn').disabled = true;
+        document.getElementById('historyStopSttBtn').disabled = true;
+        document.getElementById('historyStartSttBtn').innerText = 'STT not supported';
+      }
+    }
+
+    function speakText(text) {
+      if (!('speechSynthesis' in window)) {
+        alert('Text-to-Speech not supported in this browser.');
+        return;
+      }
+      if (speechUtterance) {
+        window.speechSynthesis.cancel();
+      }
+      speechUtterance = new SpeechSynthesisUtterance(text);
+      speechUtterance.rate = 1;
+      speechUtterance.pitch = 1;
+      window.speechSynthesis.speak(speechUtterance);
+    }
+
+    async function renderHistory () {
+      const container = document.getElementById('historyContainer');
+      const response = await fetch('/history');
+      const history = await response.json();
+
+      if (!history.length) {
+        container.innerHTML = '<p class="center">No history yet. Upload a PDF to track history.</p>';
+        document.getElementById('audioPanel').style.display = 'none';
+        return;
+      }
+
+      const rows = history.map((item, index) => {
+        const date = new Date(item.timestamp).toLocaleString();
+        const link = `pdfs/${item.storedName}`;
+        return `<tr data-index="${index}">
+          <td>${date}</td>
+          <td><a class="link" href="${link}" target="_blank">${item.originalName}</a></td>
+          <td>${item.summary.substring(0, 120)}${item.summary.length > 120 ? '...' : ''}</td>
+          <td><button class="btn" style="background:#1abc9c;">Select</button></td>
+        </tr>`;
+      }).join('');
+
+      container.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>PDF File</th>
+              <th>Generated Summary</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      `;
+
+      document.querySelectorAll('#historyContainer tbody tr').forEach(row => {
+        row.addEventListener('click', () => {
+          const index = Number(row.getAttribute('data-index'));
+          selectHistory(history[index]);
+        });
+      });
+    }
+
+    function selectHistory(item) {
+      selectedHistory = item;
+      document.getElementById('audioPanel').style.display = 'block';
+      document.getElementById('selectedFileName').innerText = item.originalName;
+      document.getElementById('selectedSummary').innerText = item.summary;
+      document.getElementById('sttTranscript').innerText = '';
+    }
+
+    document.getElementById('clearHistoryBtn').addEventListener('click', async () => {
+      if (confirm('Clear full history?')) {
+        await fetch('/history/clear', { method: 'POST' });
+        document.getElementById('audioPanel').style.display = 'none';
+        renderHistory();
+      }
+    });
+
+    document.getElementById('historyStartSttBtn').addEventListener('click', () => {
+      if (!recognition) return;
+      recognition.start();
+      document.getElementById('historyStartSttBtn').innerText = 'Listening...';
+    });
+
+    document.getElementById('historyStopSttBtn').addEventListener('click', () => {
+      if (!recognition) return;
+      recognition.stop();
+      document.getElementById('historyStartSttBtn').innerText = 'Start STT';
+    });
+
+    document.getElementById('historyTtsBtn').addEventListener('click', () => {
+      if (!selectedHistory) {
+        alert('Select a history record first.');
+        return;
+      }
+      speakText(selectedHistory.summary);
+    });
+
+    document.getElementById('historyStopTtsBtn').addEventListener('click', () => {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    });
+
+    initializeSpeechTools();
+    renderHistory();
+  </script>
+</body>
+</html>
