@@ -104,6 +104,21 @@
     const stopTtsBtn = document.getElementById('stopTtsBtn');
 
     let currentSummary = '';
+    const localApiOrigin = 'http://localhost:3000';
+    const configuredApiOrigin = (
+      window.API_BASE_URL ||
+      document.querySelector('meta[name="api-base-url"]')?.content ||
+      ''
+    ).replace(/\/$/, '');
+    const apiOrigin = configuredApiOrigin || (
+      ['localhost', '127.0.0.1'].includes(window.location.hostname)
+        ? localApiOrigin
+        : window.location.origin
+    );
+
+    function buildApiUrl(path) {
+      return `${apiOrigin}${path}`;
+    }
     let recognition = null;
     let speechUtterance = null;
 
@@ -219,7 +234,7 @@
       formData.append('pdf', file);
 
       const xhr = new XMLHttpRequest();
-      xhr.open('POST', 'http://localhost:3000/upload');
+      xhr.open('POST', buildApiUrl('/upload'));
 
       xhr.upload.onprogress = (e) => {
         if (e.lengthComputable) {
@@ -232,7 +247,7 @@
         progress.style.display = 'none';
         if (xhr.status === 200) {
           const data = JSON.parse(xhr.responseText);
-          const pdfUrl = `http://localhost:3000/pdfs/${data.file.filename}`;
+          const pdfUrl = buildApiUrl(`/pdfs/${data.file.filename}`);
           currentSummary = data.summary || 'N/A';
           summaryText.innerHTML = `<p>${currentSummary}</p>`;
           pdfCard.innerHTML = `<h3>📄 Preview:</h3><iframe id="pdfFrame" src="${pdfUrl}" frameborder="0"></iframe><div class="pdf-toolbar"><button id="fullscreenBtn">Fullscreen</button></div>`;
